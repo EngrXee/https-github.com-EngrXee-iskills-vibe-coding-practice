@@ -1,0 +1,182 @@
+/* ===== Basic reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  color: #1e293b;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+/* ===== Main card ===== */
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: #4f46e5;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* ===== Add task form ===== */
+.task-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#task-input:focus {
+  border-color: #4f46e5;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-add {
+  background: #4f46e5;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 1rem;
+}
+
+.btn-add:hover {
+  background: #4338ca;
+}
+
+.btn-complete {
+  background: #dcfce7;
+  color: #166534;
+  padding: 8px 12px;
+}
+
+.btn-complete:hover {
+  background: #bbf7d0;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 8px 12px;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+/* ===== Task counter ===== */
+.task-count {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+/* ===== Task list ===== */
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.task-title {
+  flex: 1;
+  word-break: break-word;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Completed task style */
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.task-item.completed {
+  background: #f1f5f9;
+}
+
+/* ===== Empty message ===== */
+.empty-message {
+  text-align: center;
+  color: #94a3b8;
+  padding: 32px 16px;
+  border: 2px dashed #e2e8f0;
+  border-radius: 10px;
+}
+
+/* ===== Responsive (small screens) ===== */
+@media (max-width: 480px) {
+  .app {
+    padding: 20px;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    width: 100%;
+  }
+
+  .task-actions .btn {
+    flex: 1;
+  }
+}

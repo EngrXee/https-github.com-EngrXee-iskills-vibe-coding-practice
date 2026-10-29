@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Project Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>AI Project Tracker</h1>
+      <p class="subtitle">Keep track of your AI project tasks</p>
+    </header>
+
+    <!-- Form to add a new task -->
+    <form id="task-form" class="task-form">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="Enter a task title..."
+        maxlength="100"
+        autocomplete="off"
+      >
+      <button type="submit" class="btn btn-add">Add Task</button>
+    </form>
+
+    <!-- Task counter -->
+    <p id="task-count" class="task-count"></p>
+
+    <!-- List where tasks are shown -->
+    <ul id="task-list" class="task-list"></ul>
+
+    <!-- Message shown when there are no tasks -->
+    <p id="empty-message" class="empty-message">
+      No tasks yet. Add your first task above to get started!
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
