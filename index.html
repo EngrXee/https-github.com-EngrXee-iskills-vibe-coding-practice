@@ -13,6 +13,22 @@
       <p class="subtitle">Keep track of your AI project tasks</p>
     </header>
 
+    <!-- Task counters -->
+    <section class="stats">
+      <div class="stat stat-total">
+        <span id="total-count" class="stat-number">0</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat stat-completed">
+        <span id="completed-count" class="stat-number">0</span>
+        <span class="stat-label">Completed</span>
+      </div>
+      <div class="stat stat-pending">
+        <span id="pending-count" class="stat-number">0</span>
+        <span class="stat-label">Pending</span>
+      </div>
+    </section>
+
     <!-- Form to add a new task -->
     <form id="task-form" class="task-form">
       <input
@@ -24,9 +40,6 @@
       >
       <button type="submit" class="btn btn-add">Add Task</button>
     </form>
-
-    <!-- Task counter -->
-    <p id="task-count" class="task-count"></p>
 
     <!-- List where tasks are shown -->
     <ul id="task-list" class="task-list"></ul>

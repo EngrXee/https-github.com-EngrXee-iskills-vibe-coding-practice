@@ -3,7 +3,9 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 const emptyMessage = document.getElementById("empty-message");
-const taskCount = document.getElementById("task-count");
+const totalCount = document.getElementById("total-count");
+const completedCount = document.getElementById("completed-count");
+const pendingCount = document.getElementById("pending-count");
 
 // Key used to save tasks in localStorage
 const STORAGE_KEY = "aiProjectTasks";
@@ -29,24 +31,33 @@ function saveTasks() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
 
+// ===== Update the counters =====
+function updateCounters() {
+  const total = tasks.length;
+  const completed = tasks.filter(function (task) {
+    return task.completed;
+  }).length;
+  const pending = total - completed;
+
+  totalCount.textContent = total;
+  completedCount.textContent = completed;
+  pendingCount.textContent = pending;
+}
+
 // ===== Show tasks on the page =====
 function renderTasks() {
   // Clear the current list
   taskList.innerHTML = "";
 
+  // Counters update every time the list is redrawn
+  updateCounters();
+
   // Show or hide the empty message
   if (tasks.length === 0) {
     emptyMessage.style.display = "block";
-    taskCount.textContent = "";
     return;
   }
   emptyMessage.style.display = "none";
-
-  // Update the counter
-  const doneCount = tasks.filter(function (task) {
-    return task.completed;
-  }).length;
-  taskCount.textContent = doneCount + " of " + tasks.length + " tasks completed";
 
   // Create a list item for each task
   tasks.forEach(function (task) {
@@ -92,7 +103,7 @@ function renderTasks() {
 // ===== Task actions =====
 function addTask(title) {
   const newTask = {
-    id: Date.now(), // simple unique id
+    id: Date.now() + Math.random(), // time + random number = unique id
     title: title,
     completed: false
   };
